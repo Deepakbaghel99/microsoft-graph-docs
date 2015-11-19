@@ -2,7 +2,7 @@
 
 Use this API to create a new Attachment.
 ### Prerequisites
-The following **scopes** are required to execute this API: 
+The following **scopes** are required to execute this API: _Calendars.ReadWrite_ 
 ### HTTP request
 <!-- { "blockType": "ignored" } -->
 ```http
@@ -15,7 +15,7 @@ POST /users/<id | userPrincipalName>/calendarView/<id>/attachments
 | Name       | Type | Description|
 |:---------------|:--------|:----------|
 | Authorization  | string  | Bearer <token>. Required. |
-
+| Content-Type | string  | Nature of the data in the body of an entity. Required. |
 ### Request body
 In the request body, supply a JSON representation of [Attachment](../resources/attachment.md) object.
 
@@ -31,16 +31,29 @@ Here is an example of the request.
   "name": "create_attachment_from_event"
 }-->
 ```http
-POST https://graph.microsoft.com/beta/me/events/<id>/attachments
+Creating file attachment 
+POST https://graph.microsoft.com/beta/me/messages/<id>/attachments
 Content-type: application/json
 Content-length: 142
 
 {
-  "lastModifiedDateTime": "datetime-value",
+  "@odata.type": "#Microsoft.OutlookServices.FileAttachment",
   "name": "name-value",
   "contentType": "contentType-value",
-  "size": 99,
-  "isInline": true
+  "isInline": false,
+  "contentLocation": "contentLocation-value",
+  "contentBytes": "contentBytes-value"
+}
+
+Creating item attachment 
+POST https://graph.microsoft.com/beta/me/events/<id>/attachments
+Content-type: application/json
+Content-length: 100
+
+{
+  "@odata.type": "#Microsoft.OutlookServices.ItemAttachment",
+  "name": "name-value",
+  "item": "message or event entity"
 }
 ```
 In the request body, supply a JSON representation of [attachment](../resources/attachment.md) object.
@@ -52,17 +65,7 @@ Here is an example of the response. Note: The response object shown here may be 
   "@odata.type": "microsoft.graph.attachment"
 } -->
 ```http
-Content-type: application/json
-Content-length: 162
-
-{
-  "lastModifiedDateTime": "datetime-value",
-  "name": "name-value",
-  "contentType": "contentType-value",
-  "size": 99,
-  "isInline": true,
-  "id": "id-value"
-}
+HTTP 201 Created
 ```
 
 <!-- uuid: 8fcb5dbc-d5aa-4681-8e31-b001d5168d79

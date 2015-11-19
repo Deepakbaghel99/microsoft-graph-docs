@@ -2,7 +2,7 @@
 
 Retrieve a list of attachment objects.
 ### Prerequisites
-The following **scopes** are required to execute this API: 
+The following **scopes** are required to execute this API: _Calendars.Read_ 
 ### HTTP request
 <!-- { "blockType": "ignored" } -->
 ```http
@@ -47,12 +47,17 @@ Content-length: 215
 {
   "value": [
     {
-      "lastModifiedDateTime": "datetime-value",
-      "name": "name-value",
+      "@odata.type": "#Microsoft.OutlookServices.FileAttachment",
       "contentType": "contentType-value",
-      "size": 99,
-      "isInline": true,
-      "id": "id-value"
+      "contentLocation": "contentLocation-value",
+      "contentBytes": "contentBytes-value",
+      "contentId": "null",
+      "lastModifiedDateTime": "datetime-value",
+      "id": "id-value",
+      "isInline": false,
+      "isContactPhoto": false,
+      "name": "name-value",
+      "size": 99
     }
   ]
 }
