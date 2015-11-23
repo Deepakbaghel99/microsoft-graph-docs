@@ -2,16 +2,16 @@
 
 Use this API to create a new Conversation.
 ### Prerequisites
-One of the following **scopes** is required to execute this API: 
+One of the following **scopes** is required to execute this API: *Group.ReadWrite.All*
 ### HTTP request
 <!-- { "blockType": "ignored" } -->
 ```http
 POST /groups/<id>/conversations
 ```
 ### Request headers
-| Name       | Type | Description|
-|:---------------|:--------|:----------|
-| Authorization  | string  | Bearer <token>. Required. |
+| Header       | Value |
+|:---------------|:--------|
+| Authorization  | Bearer <token>. Required.  |
 
 ### Request body
 In the request body, supply a JSON representation of [Conversation](../resources/conversation.md) object.
@@ -51,6 +51,7 @@ Here is an example of the response. Note: The response object shown here may be 
   "@odata.type": "microsoft.graph.conversation"
 } -->
 ```http
+HTTP/1.1 200 OK
 Content-type: application/json
 Content-length: 201
 

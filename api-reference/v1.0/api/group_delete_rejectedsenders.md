@@ -1,18 +1,18 @@
-# Delete outlookItem
+# Remove rejectedSender
 
-Delete outlookItem.
+Use this API to Remove a user or group to the rejectedSenders collection.
 ### Prerequisites
-One of the following **scopes** is required to execute this API: 
+One of the following **scopes** is required to execute this API: *Group.ReadWrite.All*
 ### HTTP request
 <!-- { "blockType": "ignored" } -->
 ```http
-
+DELETE /groups/<id>/rejectedSenders/$ref?$id=<id>
 
 ```
 ### Request headers
-| Name       | Type | Description|
-|:---------------|:--------|:----------|
-| Authorization  | string  | Bearer <token>. Required. |
+| Header       | Value |
+|:---------------|:--------|
+| Authorization  | Bearer <token>. Required.  |
 
 ### Request body
 Do not supply a request body for this method.
@@ -23,14 +23,17 @@ If successful, this method returns `204, No Content` response code. It does not 
 
 ### Example
 ##### Request
-Here is an example of the request.
+Here are a couple of examples of the request.
 <!-- {
   "blockType": "request",
-  "name": "delete_outlookitem"
+  "name": "create_directoryobject_from_group"
 }-->
 ```http
+DELETE https://graph.microsoft.com/v1.0/groups/<id>/rejectedSenders/$ref?$id="users/<id>"
 
+DELETE https://graph.microsoft.com/v1.0/groups/<id>/rejectedSenders/$ref?$id="groups/<id>"
 ```
+
 ##### Response
 Here is an example of the response. 
 <!-- {
@@ -45,7 +48,7 @@ HTTP/1.1 204 No Content
 2015-10-25 14:57:30 UTC -->
 <!-- {
   "type": "#page.annotation",
-  "description": "Delete outlookItem",
+  "description": "Create rejectedSender",
   "keywords": "",
   "section": "documentation",
   "tocPath": ""
